@@ -80,7 +80,7 @@ background="https://www.ecestaticos.com/imagestatic/clipping/c08/a24/c08a2495ebe
 					<span class="input-group-text" id="basic-addon1">Cedula</span> <input
 						type="text" class="form-control"
 						placeholder="Inserte cedula aqui..."
-						aria-describedby="basic-addon1" required id="cedula_usuario">
+						aria-describedby="basic-addon1" required id="cedula_cliente">
 				</div>
 
 				<div class="input-group mb-3">

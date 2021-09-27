@@ -85,7 +85,7 @@
 					<span class="input-group-text" id="basic-addon1">Cedula</span> <input
 						type="text" class="form-control"
 						placeholder="Inserte cedula aqui..."
-						aria-describedby="basic-addon1" required id="cedula_usuario">
+						aria-describedby="basic-addon1" required id="c_cliente">
 				</div>
 
 			</form>
@@ -136,6 +136,54 @@
 			</div>
 		</div>
 	</nav>
-  
+  <script>
+		function eliminar() {
+			var y = document.getElementById("c_cliente").value;
+			var req = new XMLHttpRequest();
+			var coincidencia = false;
+			req.open('GET', 'http://localhost:8080/listarclientes', false);
+			req.send(null);
+			var clientes = null;
+			if (req.status == 200)
+				clientes = JSON.parse(req.responseText);
+			console.log(JSON.parse(req.responseText));
+
+			for (i = 0; i < clientes.length; i++) {
+				
+				console.log(clientes[i].cedula_cliente);
+				if (clientes[i].cedula_cliente == y) {
+					console.log(clientes[i].cedula_cliente + " " + y);
+					coincidencia = true
+					break;
+				}
+			}
+			console.log(coincidencia);
+
+			if (coincidencia != false) {
+				var cedula=document.getElementById("c_cliente").value;
+				console.log(cedula);
+				var xhr = new XMLHttpRequest();
+				xhr.open("DELETE", "http://localhost:8080/eliminarcliente?cedula="+cedula);
+				
+				var element = document.getElementById("error");
+				element.classList.add("visually-hidden");
+				
+				var element2 = document.getElementById("correcto");
+				element2.classList.remove("visually-hidden");
+
+				document.getElementById("c_cliente").value = "";
+				xhr.send();
+
+			} else {
+				var element = document.getElementById("error");
+				element.classList.remove("visually-hidden");
+				
+				var element2 = document.getElementById("correcto");
+				element2.classList.add("visually-hidden");
+				
+				document.getElementById("c_cliente").value = "";;
+			}
+		}
+	</script>
 </body>
 </html>

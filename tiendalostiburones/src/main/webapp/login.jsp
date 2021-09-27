@@ -9,7 +9,7 @@
 <!-- Tamaño de la pantalla -->
 <meta name="viewport" content="width=device-width">
 <!-- titulo de la pestaña -->
-<title>Diego Rodriguez</title>
+<title>Login</title>
 
 <!-- bootstrap-->
 <link

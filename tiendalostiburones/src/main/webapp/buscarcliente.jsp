@@ -10,7 +10,7 @@
 <!-- Tamaño de la pantalla -->
 <meta name="viewport" content="width=device-width">
 <!-- titulo de la pestaña -->
-<title>Buscar usuario</title>
+<title>Buscar cliente</title>
 <!-- bootstrap-->
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
@@ -83,8 +83,8 @@
 				<div class="input-group mb-3">
 					<span class="input-group-text" id="basic-addon4">cliente a buscar</span> <input
 						type="text" class="form-control"
-						placeholder="Inserte username aqui..."
-						aria-describedby="basic-addon4" required id="usersearch" >
+						placeholder="Inserte nombre del cliente aqui..."
+						aria-describedby="basic-addon4" required id="clientsearch" >
 				</div>
 				<br>
 				<br>
@@ -175,12 +175,12 @@
 				
 				var req = new XMLHttpRequest();
 				var coincidencia = false;
-				var user=   document.getElementById("usersearch").value;
-				req.open('GET', 'http://localhost:8080/consultarusuario?usuario='+user, false);
+				var cedula=   document.getElementById("clientsearch").value;
+				req.open('GET', 'http://localhost:8080/consultarcliente?cedula='+cedula, false);
 				req.send(null);
-				var usuario = null;
+				var cliente = null;
 				if (req.status == 200)
-					usuario = JSON.parse(req.responseText);
+					cliente = JSON.parse(req.responseText);
 				console.log(JSON.parse(req.responseText));
 				
 			
@@ -190,17 +190,17 @@
 				var element2 = document.getElementById("correcto");
 				element2.classList.remove("visually-hidden");
 				
-				console.log(usuario.toString());
+				console.log(cliente.toString());
 				
-			if (usuario.toString()!=""){
+			if (cliente.toString()!=""){
 
-				document.getElementById("cedula_usuario").value = usuario[0].cedula_usuario;
-				document.getElementById("email_usuario").value = usuario[0].cedula_usuario;
-				document.getElementById("nombre_usuario").value = usuario[0].cedula_usuario;
-				document.getElementById("password").value = usuario[0].cedula_usuario;
-				document.getElementById("user").value = usuario[0].cedula_usuario;
+				document.getElementById("cedula_cliente").value = cliente[0].cedula_cliente;
+				document.getElementById("direccion_cliente").value = cliente[0].direccion_cliente;
+				document.getElementById("email_cliente").value = cliente[0].email_cliente;
+				document.getElementById("nombre_cliente").value = cliente[0].nombre_cliente;
+				document.getElementById("telefono_cliente").value = cliente[0].telefono_cliente;
 				
-				document.getElementById("usersearch").value = "";
+				document.getElementById("clientsearch").value = "";
 			
 
 			} else {
@@ -208,11 +208,11 @@
 				element.classList.remove("visually-hidden");
 				var element2 = document.getElementById("correcto");
 				element2.classList.add("visually-hidden");
-				document.getElementById("cedula_usuario").value = "";
-				document.getElementById("email_usuario").value = "";
-				document.getElementById("nombre_usuario").value = "";
-				document.getElementById("password").value = "";
-				document.getElementById("user").value = "";
+				document.getElementById("cedula_cliente").value = "";
+				document.getElementById("direccion_cliente").value = "";
+				document.getElementById("email_cliente").value = "";
+				document.getElementById("nombre_cliente").value = "";
+				document.getElementById("telefono_cliente").value = "";
 			}
 		}
 	</script>
