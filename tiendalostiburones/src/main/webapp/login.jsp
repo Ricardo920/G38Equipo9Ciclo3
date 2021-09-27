@@ -29,12 +29,14 @@
 
 </head>
 
-<body>
+<body
+	background="https://www.ecestaticos.com/imagestatic/clipping/c08/a24/c08a2495ebeaecb195044abdd9f0304b/seis-alimentos-que-te-dijeron-que-eran-malos-pero-son-saludables.jpg?mtime=1579565836">
+    <br>
 	<!-- Navbar-->
 	<nav class="navbar navbar-dark bg-dark">
 		<div class="container-fluid">
 			<a class="navbar-brand links" href="index.html"> <i
-				class="fas fa-fish"></i> Tienda Los Tiburones
+				class="fas fa-fish"></i> Tu Alacena A La Mano
 			</a>
 		</div>
 	</nav>
@@ -47,14 +49,16 @@
 			</H1>
 			<div class="input-group mb-3">
 				<span class="input-group-text" id="basic-addon1"><i
-					class="fas fa-user-shield"></i></span> <input id="inputuser" type="text"
+					class="fas fa-user-shield"></i></span> 
+					<input id="inputuser" type="text"
 					class="form-control" placeholder="Username" aria-label="Username"
 					aria-describedby="basic-addon1">
 			</div>
 
 			<div class="input-group mb-3">
 				<span class="input-group-text" id="basic-addon1"><i
-					class="fas fa-key"></i> </span> <input id="inputpass" type="password"
+					class="fas fa-key"></i> </span> 
+					<input id="inputpass" type="password"
 					class="form-control" placeholder="Password" aria-label="Password"
 					aria-describedby="basic-addon1">
 			</div>
@@ -65,6 +69,7 @@
 				<button type="button" class="btn btn-warning">
 					<i class="fas fa-clipboard-list"></i> Registrarse
 				</button>
+				
 				<div id="error" class="alert alert-danger visually-hidden"
 					role="alert">Usuario o contraseña incorrecta!</div>
 
@@ -76,7 +81,7 @@
 		<div class="row justify-content-between">
 			<div class="col-4">
 				<a class="navbar-brand links" href="#"><i class="fas fa-code"></i>
-					Diseñado y programado por Diego Rodriguez <i
+					Diseñado y programado por Equipo 9, Grupo38  <i
 					class="fas fa-code-branch"></i></a>
 			</div>
 			<!--  

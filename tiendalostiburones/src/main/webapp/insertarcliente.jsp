@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+    pageEncoding="ISO-8859-1"%>
  <!DOCTYPE html>
 <html>
 <head>
@@ -10,7 +10,7 @@
 <!-- Tamaño de la pantalla -->
 <meta name="viewport" content="width=device-width">
 <!-- titulo de la pestaña -->
-<title>Insertando usuario</title>
+<title>Insertando cliente</title>
 <!-- bootstrap-->
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
@@ -50,7 +50,7 @@
 				class="fas fa-users"></i> Usuarios
 			</a> <a class="navbar-brand links" href="listaclientes.jsp"> <i
 				class="fas fa-address-book"></i> Clientes
-			</a> <a class="navbar-brand links" href="listausuarios.jsp"> <i
+			</a> <a class="navbar-brand links" href="listaclientes.jsp"> <i
 				class="fas fa-truck"></i> Proveedores
 			</a> <a class="navbar-brand links" href="listausuarios.jsp"> <i
 				class="fas fa-apple-alt"></i> Productos
@@ -64,61 +64,57 @@
 
 	<div style="padding-left: 5px">
 		<h1>
-			<i class="fas fa-plus-circle"></i> Datos del nuevo usuario
+			<i class="fas fa-plus-circle"></i> Datos del nuevo cliente
 		</h1>
 		<div class="container">
 		
 		
 			<div id="error" class="alert alert-danger visually-hidden"
-					role="alert">Error al crear el usuario, verifique que no exista un usuario con la cedula y usuario dados</div>
+					role="alert">Error al crear el cliente, verifique que no exista un cliente con la misma informacion dada</div>
 					
 			<div id="correcto" class="alert alert-success visually-hidden"
-				role="alert">Usuario creado con exito</div>
+				role="alert">Cliente creado con exito</div>
 
 			<form id="form1">
 				<div class="input-group mb-3">
 					<span class="input-group-text" id="basic-addon1">Cedula</span> <input
 						type="text" class="form-control"
 						placeholder="Inserte cedula aqui..."
-						aria-describedby="basic-addon1" required id="cedula_usuario">
+						aria-describedby="basic-addon1" required id="cedula_cliente">
 				</div>
 
 				<div class="input-group mb-3">
+					<span class="input-group-text" id="basic-addon2">Direccion</span> <input
+						type="text" class="form-control"
+						placeholder="Inserte la direccion aqui..."
+						aria-describedby="basic-addon2" required id="direccion_cliente">
+				</div>
+
+        <div class="input-group mb-3">
 					<span class="input-group-text" id="basic-addon2">Email</span> <input
 						type="text" class="form-control"
 						placeholder="Inserte email aqui..."
-						aria-describedby="basic-addon2" required id="email_usuario">
+						aria-describedby="basic-addon2" required id="email_cliente">
 				</div>
 
 				<div class="input-group mb-3">
 					<span class="input-group-text" id="basic-addon3">Nombrecompleto</span>
 					<input type="text" class="form-control"
 						placeholder="Inserte nonbre aqui..."
-						aria-describedby="basic-addon3" required id="nombre_usuario">
+						aria-describedby="basic-addon3" required id="nombre_cliente">
 				</div>
 
 				<div class="input-group mb-3">
-					<span class="input-group-text" id="basic-addon4">Username</span> <input
+					<span class="input-group-text" id="basic-addon4">Telefono</span> <input
 						type="text" class="form-control"
-						placeholder="Inserte username aqui..."
-						aria-describedby="basic-addon4" required id="user">
+						placeholder="Inserte Telefono aqui..."
+						aria-describedby="basic-addon4" required id="telefono_cliente">
 				</div>
-
-				<div class="input-group mb-3">
-					<span class="input-group-text" id="basic-addon5">Password</span> <input
-						type="text" class="form-control"
-						placeholder="Inserte password aqui..."
-						aria-describedby="basic-addon5" required id="password">
-				</div>
-
-
-
-
 
 			</form>
 
 			<button type="button" class="btn btn-success" onclick="enviar()">
-				<i class="fas fa-check"></i> Insertar nuevo usuario
+				<i class="fas fa-check"></i> Insertar nuevo cliente
 			</button>
 
 
@@ -130,24 +126,24 @@
 			<div class="container">
 				<div class="row">
 					<button type="button" class="btn btn-success"
-						onclick="window.location.href='/insertarusuario.jsp'">
-						<i class="fas fa-plus-circle"></i> Agregar usuario
+						onclick="window.location.href='/insertarcliente.jsp'">
+						<i class="fas fa-plus-circle"></i> Agregar cliente
 					</button>
 					<button type="button" class="btn btn-danger"
-						onclick="window.location.href='/eliminarusuario.jsp'">
-						<i class="fas fa-trash"></i> Eliminar usuario
+						onclick="window.location.href='/eliminarcliente.jsp'">
+						<i class="fas fa-trash"></i> Eliminar cliente
 					</button>
 					<button type="button" class="btn btn-warning"
-						onclick="window.location.href='/actualizarusuario.jsp'">
-						<i class="fas fa-pen-alt"></i> Actualizar usuario
+						onclick="window.location.href='/actualizarcliente.jsp'">
+						<i class="fas fa-pen-alt"></i> Actualizar clientes
 					</button>
 					<button type="button" class="btn btn-primary"
-						onclick="window.location.href='/buscarusuario.jsp'">
-						<i class="fas fa-search"></i> Buscar un usuario
+						onclick="window.location.href='/buscarcliente.jsp'">
+						<i class="fas fa-search"></i> Buscar un cliente
 					</button>
 					<button type="button" class="btn btn-primary"
-						onclick="window.location.href='/listausuarios.jsp'">
-						<i class="fas fa-search"></i> Listar todos los usuario
+						onclick="window.location.href='/listaclientes.jsp'">
+						<i class="fas fa-search"></i> Listar todos los clientes
 					</button>
 				</div>
 
@@ -165,31 +161,26 @@
 		</div>
 	</nav>
   
-
 	<script>
 		function enviar() {
-			var x = document.getElementById("user").value;
-			var y = document.getElementById("cedula_usuario").value;
+		
+			var y = document.getElementById("cedula_cliente").value;
 			var req = new XMLHttpRequest();
 			var coincidencia = false;
-			req.open('GET', 'http://localhost:8080/listarusuarios', false);
+			req.open('GET', 'http://localhost:8080/listarclientes', false);
 			req.send(null);
-			var usuarios=null;
+			var clientes=null;
 			if (req.status == 200)
-				usuarios=JSON.parse(req.responseText);
+				clientes=JSON.parse(req.responseText);
 			  	console.log(JSON.parse(req.responseText));
 			  	
-			for (i = 0; i < usuarios.length; i++) {
-				console.log(usuarios[i].usuario);
-				console.log(usuarios[i].cedula_usuario);
-				if (usuarios[i].usuario ===x ) {
-					console.log(usuarios[i].usuario +" "+x);	
-					coincidencia =true
-					break;
-				}
+			for (i = 0; i < clientes.length; i++) {
+				console.log(clientes[i].cliente);
+				console.log(clientes[i].cedula_cliente);
 				
-				if (usuarios[i].cedula_usuario ===y ) {
-					console.log(usuarios[i].cedula_usuario +" "+y);	
+				
+				if (clientes[i].cedula_cliente ===y ) {
+					console.log(clientes[i].cedula_cliente +" "+y);	
 					coincidencia =true
 					break;
 				}
@@ -198,24 +189,24 @@
 			
 			if (coincidencia==false){
 				var formData = new FormData();
-	 			formData.append("cedula_usuario", document.getElementById("cedula_usuario").value);
-	 			formData.append("email_usuario", document.getElementById("email_usuario").value);
-	 			formData.append("nombre_usuario", document.getElementById("nombre_usuario").value);
-	 			formData.append("password",document.getElementById("password").value);
-	 			formData.append("usuario",document.getElementById("user").value);
+	 			formData.append("cedula_cliente", document.getElementById("cedula_cliente").value);
+	 			formData.append("direccion_cliente", document.getElementById("direccion_cliente").value);
+	 			formData.append("email_cliente", document.getElementById("email_cliente").value);
+	 			formData.append("nombre_cliente",document.getElementById("nombre_cliente").value);
+	 			formData.append("telefono_cliente",document.getElementById("telefono_cliente").value);
 	 			var xhr = new XMLHttpRequest();
-	 			xhr.open("POST", "http://localhost:8080/registrarusuario");
+	 			xhr.open("POST", "http://localhost:8080/registrarcliente");
 	 			
 				var element = document.getElementById("error");
 				element.classList.add("visually-hidden");
 				var element2 = document.getElementById("correcto");
 				element2.classList.remove("visually-hidden");
 				
-				document.getElementById("cedula_usuario").value = "";
-				document.getElementById("email_usuario").value = "";
-				document.getElementById("nombre_usuario").value = "";
-				document.getElementById("password").value = "";
-				document.getElementById("user").value = "";
+				document.getElementById("cedula_cliente").value = "";
+				document.getElementById("direccion_cliente").value = "";
+				document.getElementById("email_cliente").value = "";
+				document.getElementById("nombre_cliente").value = "";
+				document.getElementById("telefono_cliente").value = "";
 	 			xhr.send(formData);
 
 			}else{
@@ -223,14 +214,13 @@
 				element.classList.remove("visually-hidden");
 				var element2 = document.getElementById("correcto");
 				element2.classList.add("visually-hidden");
-				document.getElementById("cedula_usuario").value = "";
-				document.getElementById("email_usuario").value = "";
-				document.getElementById("nombre_usuario").value = "";
-				document.getElementById("password").value = "";
-				document.getElementById("user").value = "";
+				document.getElementById("cedula_cliente").value = "";
+				document.getElementById("direccion_cliente").value = "";
+				document.getElementById("email_cliente").value = "";
+				document.getElementById("nombre_cliente").value = "";
+				document.getElementById("telefono_cliente").value = "";
 			}	
 		}
 	</script>
-
 </body>
 </html>

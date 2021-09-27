@@ -60,12 +60,14 @@
 </head>
 
 
-<body>
+<body
+  background="https://www.ecestaticos.com/imagestatic/clipping/c08/a24/c08a2495ebeaecb195044abdd9f0304b/seis-alimentos-que-te-dijeron-que-eran-malos-pero-son-saludables.jpg?mtime=1579565836">
+    <br>
 	<!-- Navbar-->
 	<nav class="navbar navbar-dark bg-dark">
 		<div class="container-fluid">
 			<a class="navbar-brand links" href="index.html"><i
-				class="fas fa-fish"></i>Tienda Los Tiburones</a>
+				class="fas fa-fish"></i>Tu Alacena A La Mano</a>
 		</div>
 	</nav>
 
@@ -74,7 +76,7 @@
 		<div class="container">
 			<a class="navbar-brand links" href="listausuarios.jsp">
 			<i class="fas fa-users"></i> Usuarios</a> 
-			<a class="navbar-brand links" href="listausuarios.jsp">
+			<a class="navbar-brand links" href="listaclientes.jsp">
 			<i class="fas fa-address-book"></i> Clientes</a>
 			<a class="navbar-brand links" href="listausuarios.jsp">
 			<i class="fas fa-truck"></i> Proveedores</a>
@@ -106,16 +108,26 @@
 		<h1><i class="fas fa-cogs"></i> Operaciones</h1>
 			<div class="container">
 				<div class="row">
-					<button type="button" class="btn btn-success" onclick="window.location.href='/insertarusuario.jsp'">
-					<i class="fas fa-plus-circle"></i> Agregar usuario</button>
-					<button type="button" class="btn btn-danger">
-					<i class="fas fa-trash"></i> Eliminar usuario</button>
-					<button type="button" class="btn btn-warning">
-					<i class="fas fa-pen-alt"></i> Actualizar usuario</button>
-					<button type="button" class="btn btn-primary">
-					<i class="fas fa-search"></i> Buscar un usuario</button>
-					<button type="button" class="btn btn-primary">
-					<i class="fas fa-search"></i> Listar todos los usuarios</button>
+					<button type="button" class="btn btn-success"
+						onclick="window.location.href='/insertarusuario.jsp'">
+						<i class="fas fa-plus-circle"></i> Agregar usuario
+					</button>
+					<button type="button" class="btn btn-danger"
+						onclick="window.location.href='/eliminarusuario.jsp'">
+						<i class="fas fa-trash"></i> Eliminar usuario
+					</button>
+					<button type="button" class="btn btn-warning"
+						onclick="window.location.href='/actualizarusuario.jsp'">
+						<i class="fas fa-pen-alt"></i> Actualizar usuario
+					</button>
+					<button type="button" class="btn btn-primary"
+						onclick="window.location.href='/buscarusuario.jsp'">
+						<i class="fas fa-search"></i> Buscar un usuario
+					</button>
+					<button type="button" class="btn btn-primary"
+						onclick="window.location.href='/listausuarios.jsp'">
+						<i class="fas fa-search"></i> Listar todos los usuario
+					</button>
 				</div>
 			</div>
 	</div>
@@ -125,7 +137,7 @@
 		<div class="row justify-content-between">
 			<div class="col-4">
 				<a class="navbar-brand links" href="#"><i class="fas fa-code"></i>
-					Diseñado y programado por Diego Rodriguez <i
+					Diseñado y programado por Equipo 9, Grupo38 <i
 					class="fas fa-code-branch"></i></a>
 			</div>
 		</div>
