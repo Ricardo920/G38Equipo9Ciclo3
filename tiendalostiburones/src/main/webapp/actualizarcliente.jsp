@@ -142,7 +142,7 @@ background="https://www.ecestaticos.com/imagestatic/clipping/c08/a24/c08a2495ebe
 						<i class="fas fa-search"></i> Listar todos los clientes
 					</button>
 				</div>
-			</div>
+			<!-- </div> -->
 		</div>
 
 	</div>
@@ -157,7 +157,7 @@ background="https://www.ecestaticos.com/imagestatic/clipping/c08/a24/c08a2495ebe
 	</nav>
 	<script>
 		function actualizar() {
-			var x = document.getElementById("nombre_cliente").value;
+			
 			var y = document.getElementById("cedula_cliente").value;
 			var req = new XMLHttpRequest();
 			var coincidencia = false;
@@ -169,15 +169,12 @@ background="https://www.ecestaticos.com/imagestatic/clipping/c08/a24/c08a2495ebe
 			console.log(JSON.parse(req.responseText));
 
 			for (i = 0; i < clientes.length; i++) {
-				console.log(clientes[i].cliente);
+				console.log(clientes[i].nombre_cliente);
 				console.log(clientes[i].cedula_cliente);
-				if (clientes[i].cliente === x) {
-					console.log(clientes[i].cliente + " " + x);
-					coincidencia = true
-					break;
-				}
+				
+				
 
-				if (clientes[i].cedula_cliente === y) {
+				if (clientes[i].cedula_cliente == y) {
 					console.log(clientes[i].cedula_cliente + " " + y);
 					coincidencia = true
 					break;
@@ -190,7 +187,7 @@ background="https://www.ecestaticos.com/imagestatic/clipping/c08/a24/c08a2495ebe
 				formData.append("cedula_cliente", document
 						.getElementById("cedula_cliente").value);
 				formData.append("direccion_cliente", document
-						.getElementById("direccion cliente").value);
+						.getElementById("direccion_cliente").value);
 				formData.append("email_cliente", document
 						.getElementById("email_cliente").value);
 				formData.append("nombre_cliente",
@@ -198,7 +195,7 @@ background="https://www.ecestaticos.com/imagestatic/clipping/c08/a24/c08a2495ebe
 				formData.append("telefono_cliente",
 						document.getElementById("telefono_cliente").value);
 				var xhr = new XMLHttpRequest();
-				xhr.open("PUT", "http://localhost:8080/actualizarclientes");
+				xhr.open("PUT", "http://localhost:8080/actualizarcliente");
 
 				var element = document.getElementById("error");
 				element.classList.add("visually-hidden");

@@ -83,7 +83,7 @@
 				<div class="input-group mb-3">
 					<span class="input-group-text" id="basic-addon4">cliente a buscar</span> <input
 						type="text" class="form-control"
-						placeholder="Inserte nombre del cliente aqui..."
+						placeholder="Inserte cedula del cliente aqui..."
 						aria-describedby="basic-addon4" required id="clientsearch" >
 				</div>
 				<br>
