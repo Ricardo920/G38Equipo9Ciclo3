@@ -10,7 +10,7 @@
 <!-- Tamaño de la pantalla -->
 <meta name="viewport" content="width=device-width">
 <!-- titulo de la pestaña -->
-<title>Buscar cliente</title>
+<title>Buscar proveedor</title>
 <!-- bootstrap-->
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
@@ -67,61 +67,61 @@
 
 	<div style="padding-left: 5px">
 		<h1>
-			<i class="fas fa-search"></i> Buscando un cliente
+			<i class="fas fa-search"></i> Buscando un proveedor
 		</h1>
 		<div class="container">
 
 
 			<div id="error" class="alert alert-danger visually-hidden"
-				role="alert">Error al buscar el cliente, el cliente no existe</div>
+				role="alert">Error al buscar el proveedor, el proveedor no existe</div>
 
 			<div id="correcto" class="alert alert-success visually-hidden"
-				role="alert">cliente encontrado con exito</div>
+				role="alert">proveedor encontrado con exito</div>
 
 			<form id="form1">
 			
 				<div class="input-group mb-3">
-					<span class="input-group-text" id="basic-addon4">cliente a buscar</span> <input
+					<span class="input-group-text" id="basic-addon4">proveedor a buscar</span> <input
 						type="text" class="form-control"
-						placeholder="Inserte cedula del cliente aqui..."
-						aria-describedby="basic-addon4" required id="clientsearch" >
+						placeholder="Inserte NIT del proveedor aqui..."
+						aria-describedby="basic-addon4" required id="provsearch" >
 				</div>
 				<br>
 				<br>
 				<br>
 				<div class="input-group mb-3">
-					<span class="input-group-text" id="basic-addon1">Cedula</span> <input
+					<span class="input-group-text" id="basic-addon1">NIT</span> <input
 						type="text" class="form-control"
-						aria-describedby="basic-addon1" required id="cedula_cliente" disabled="disabled">
-				</div>
-
-				<div class="input-group mb-3">
-					<span class="input-group-text" id="basic-addon2">Direccion</span> <input
-						type="text" class="form-control"
-						aria-describedby="basic-addon2" required id="direccion_cliente" disabled="disabled">
+						aria-describedby="basic-addon1" required id="nit_proveedor" disabled="disabled">
 				</div>
 
 				<div class="input-group mb-3">
-					<span class="input-group-text" id="basic-addon3">Email</span>
+					<span class="input-group-text" id="basic-addon2">Ciudad</span> <input
+						type="text" class="form-control"
+						aria-describedby="basic-addon2" required id="ciudad_proveedor" disabled="disabled">
+				</div>
+
+				<div class="input-group mb-3">
+					<span class="input-group-text" id="basic-addon3">Direccion</span>
 					<input type="text" class="form-control"
-						aria-describedby="basic-addon3" required id="email_cliente"  disabled="disabled">
+						aria-describedby="basic-addon3" required id="direccion_proveedor"  disabled="disabled">
 				</div>
 
 				<div class="input-group mb-3">
 					<span class="input-group-text" id="basic-addon4">Nombre</span> <input
 						type="text" class="form-control"
-						aria-describedby="basic-addon4" required id="nombre_cliente"  disabled="disabled">
+						aria-describedby="basic-addon4" required id="nombre_proveedor"  disabled="disabled">
 				</div>
 
 				<div class="input-group mb-3">
 					<span class="input-group-text" id="basic-addon5">Telefono</span> <input
 						type="text" class="form-control"
-						aria-describedby="basic-addon5" required id="telefono_cliente"  disabled="disabled">
+						aria-describedby="basic-addon5" required id="telefono_proveedor"  disabled="disabled">
 				</div>
 			</form>
 
 			<button type="button" class="btn btn-primary" onclick="enviar()">
-				<i class="fas fa-search"></i> Buscar cliente
+				<i class="fas fa-search"></i> Buscar proveedor
 			</button>
 			
 			<br>
@@ -135,25 +135,25 @@
 			</h1>
 			<div class="container">
 				<div class="row">
-				<button type="button" class="btn btn-success"
-						onclick="window.location.href='/insertarcliente.jsp'">
-						<i class="fas fa-plus-circle"></i> Agregar cliente
+			<button type="button" class="btn btn-success"
+						onclick="window.location.href='/insertarproveedor.jsp'">
+						<i class="fas fa-plus-circle"></i> Agregar proveedor
 					</button>
 					<button type="button" class="btn btn-danger"
-						onclick="window.location.href='/eliminarcliente.jsp'">
-						<i class="fas fa-trash"></i> Eliminar cliente
+						onclick="window.location.href='/eliminarproveedor.jsp'">
+						<i class="fas fa-trash"></i> Eliminar proveedor
 					</button>
 					<button type="button" class="btn btn-warning"
-						onclick="window.location.href='/actualizarcliente.jsp'">
-						<i class="fas fa-pen-alt"></i> Actualizar cliente
+						onclick="window.location.href='/actualizarproveedor.jsp'">
+						<i class="fas fa-pen-alt"></i> Actualizar proveedor
 					</button>
 					<button type="button" class="btn btn-primary"
-						onclick="window.location.href='/buscarcliente.jsp'">
-						<i class="fas fa-search"></i> Buscar un cliente
+						onclick="window.location.href='/buscarproveedor.jsp'">
+						<i class="fas fa-search"></i> Buscar un proveedor
 					</button>
 					<button type="button" class="btn btn-primary"
-						onclick="window.location.href='/listaclientes.jsp'">
-						<i class="fas fa-search"></i> Listar todos los clientes
+						onclick="window.location.href='/listaproveedores.jsp'">
+						<i class="fas fa-search"></i> Listar todos los proveedores
 					</button>
 				</div>
 			</div>
@@ -175,12 +175,12 @@
 				
 				var req = new XMLHttpRequest();
 				var coincidencia = false;
-				var cedula=   document.getElementById("clientsearch").value;
-				req.open('GET', 'http://localhost:8080/consultarcliente?cedula='+cedula, false);
+				var nit=   document.getElementById("provsearch").value;
+				req.open('GET', 'http://localhost:8080/consultarproveedor?nit='+nit, false);
 				req.send(null);
 				var cliente = null;
 				if (req.status == 200)
-					cliente = JSON.parse(req.responseText);
+					proveedor = JSON.parse(req.responseText);
 				console.log(JSON.parse(req.responseText));
 				
 			
@@ -190,17 +190,17 @@
 				var element2 = document.getElementById("correcto");
 				element2.classList.remove("visually-hidden");
 				
-				console.log(cliente.toString());
+				console.log(proveedor.toString());
 				
-			if (cliente.toString()!=""){
+			if (proveedor.toString()!=""){
 
-				document.getElementById("cedula_cliente").value = cliente[0].cedula_cliente;
-				document.getElementById("direccion_cliente").value = cliente[0].direccion_cliente;
-				document.getElementById("email_cliente").value = cliente[0].email_cliente;
-				document.getElementById("nombre_cliente").value = cliente[0].nombre_cliente;
-				document.getElementById("telefono_cliente").value = cliente[0].telefono_cliente;
+				document.getElementById("nit_proveedor").value = proveedor[0].nit_proveedor;
+				document.getElementById("ciudad_proveedor").value = proveedor[0].ciudad_proveedor;
+				document.getElementById("direccion_proveedor").value = proveedor[0].direccion_proveedor;
+				document.getElementById("nombre_proveedor").value = proveedor[0].nombre_proveedor;
+				document.getElementById("telefono_proveedor").value = proveedor[0].telefono_proveedor;
 				
-				document.getElementById("clientsearch").value = "";
+				document.getElementById("provsearch").value = "";
 			
 
 			} else {
@@ -208,13 +208,13 @@
 				element.classList.remove("visually-hidden");
 				var element2 = document.getElementById("correcto");
 				element2.classList.add("visually-hidden");
-				document.getElementById("cedula_cliente").value = "";
-				document.getElementById("direccion_cliente").value = "";
-				document.getElementById("email_cliente").value = "";
-				document.getElementById("nombre_cliente").value = "";
-				document.getElementById("telefono_cliente").value = "";
+				document.getElementById("nit_proveedor").value = "";
+				document.getElementById("ciudad_proveedor").value = "";
+				document.getElementById("direccion_proveedor").value = "";
+				document.getElementById("nombre_proveedor").value = "";
+				document.getElementById("telefono_proveedor").value = "";
 			}
 		}
 	</script>
-  </body>
+</body>
 </html>
