@@ -170,7 +170,7 @@
 				var req = new XMLHttpRequest();
 				var coincidencia = false;
 				var prod=   document.getElementById("prodsearch").value;
-				req.open('GET', 'http://localhost:8080/consultarproducto?product='+codigo, false);
+				req.open('GET', 'http://localhost:8080/consultarproducto?product='+prod, false);
 				req.send(null);
 				var producto = null;
 				if (req.status == 200)
