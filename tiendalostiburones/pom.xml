@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.roca12.misiontic2022</groupId>
-	<artifactId>tiendalostiburones</artifactId>
+	<artifactId>tualacenaalamano</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
 	<name>Tienda Los tiburones</name>
