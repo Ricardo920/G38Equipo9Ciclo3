@@ -6,14 +6,14 @@ public class VentasVO implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
+	private Integer codigo_venta;
 	private Integer cedula_cliente;
 	private Integer cedula_usuario;
 	private Double ivaventa;
 	private Double total_venta;
 	private Double valor_venta;
 	
-
-	private Integer codigo_venta;
+	
 	public Integer getCodigo_venta() {
 		return codigo_venta;
 	}
