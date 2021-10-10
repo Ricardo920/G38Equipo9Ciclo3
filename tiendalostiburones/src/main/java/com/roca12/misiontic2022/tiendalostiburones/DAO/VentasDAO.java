@@ -1,13 +1,13 @@
-/**package com.roca12.misiontic2022.tiendalostiburones.DAO;
+package com.roca12.misiontic2022.tiendalostiburones.DAO;
 
-	import java.sql.PreparedStatement;
-	import java.sql.ResultSet;
-	import java.sql.SQLException;
-	import java.sql.Statement;
-	import java.util.ArrayList;
-	import com.roca12.misiontic2022.tiendalostiburones.DTO.VentasVO;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import com.roca12.misiontic2022.tiendalostiburones.DTO.VentasVO;
 
-	public class VentasDAO {
+public class VentasDAO {
 		
 		public void registrarVenta(VentasVO codigov) {
 			//llama y crea una instancia de la clase encargada de hacer la conexión
@@ -54,7 +54,7 @@
 
 		public ArrayList<VentasVO> consultarVenta(Integer codigov) {	
 			//lista que contendra el o los productos obtenidos
-			ArrayList<VentasVO> listaproductos = new ArrayList<VentasVO>();		
+			ArrayList<VentasVO> listaventas = new ArrayList<VentasVO>();		
 			//instancia de la conexión
 			Conexion conex = new Conexion();
 			try {
@@ -67,15 +67,15 @@
 				ResultSet res = consulta.executeQuery();			
 				//cree un objeto basado en la clase entidad con los datos encontrados
 				if (res.next()) {
-					ProductoVO newproducto = new ProductoVO();
-					newproducto.setCodigo_producto(Integer.parseInt(res.getString("codigo_producto")));
-					newproducto.setIva_compra(Double.parseDouble(res.getString("iva_compra")));
-					newproducto.setNit_proveedor(Integer.parseInt(res.getString("nit_proveedor")));
-					newproducto.setNombre_producto(res.getString("nombre_producto"));
-					newproducto.setPrecio_compra(Double.parseDouble(res.getString("precio_compra")));
-					newproducto.setPrecio_venta(Double.parseDouble(res.getString("precio_venta")));
+					VentasVO newventa = new VentasVO();
+					newventa.setCodigo_venta(Integer.parseInt(res.getString("Codigo_venta")));
+					newventa.setCedula_cliente(Integer.parseInt(res.getString("Cedula_cliente")));
+					newventa.setCedula_usuario(Integer.parseInt(res.getString("Cedula_usuario")));
+					newventa.setIvaventa(Double.parseDouble(res.getString("Ivaventa")));
+					newventa.setTotal_venta(Double.parseDouble(res.getString("Total_venta")));
+					newventa.setValor_venta(Double.parseDouble(res.getString("Valor_venta")));
 
-					listaproductos.add(newproducto);
+					listaventas.add(newventa);
 				}
 				//cerrar resultado, sentencia y conexión
 				res.close();
@@ -85,45 +85,45 @@
 			} catch (SQLException e) {
 				//si hay un error en el sql mostrarlo
 				System.out.println("------------------- ERROR --------------");
-				System.out.println("No se pudo consultar el producto");
+				System.out.println("No se pudo consultar la venta");
 				System.out.println(e.getMessage());
 				System.out.println(e.getErrorCode());
 			} catch (Exception e) {
 				//si hay cualquier otro error mostrarlo
 				System.out.println("------------------- ERROR --------------");
-				System.out.println("No se pudo consultar el producto");
+				System.out.println("No se pudo consultar la venta");
 				System.out.println(e.getMessage());
 				System.out.println(e.getLocalizedMessage());
 			}
-			return listaproductos;
+			return listaventas;
 		}
 
 
-		public ArrayList<ProductoVO> listaDeProductos() {
+		public ArrayList<VentasVO> listaDeVentas() {
 			//lista que contendra el o los productos obtenidos
-			ArrayList<ProductoVO> listaproductos = new ArrayList<ProductoVO>();
+			ArrayList<VentasVO> listaventas = new ArrayList<VentasVO>();
 			
 			//instancia de la conexión
 			Conexion conex = new Conexion();
 
 			try {
 				//prepare la sentencia en la base de datos
-				PreparedStatement consulta = conex.getConnection().prepareStatement("SELECT * FROM productos");
+				PreparedStatement consulta = conex.getConnection().prepareStatement("SELECT * FROM ventas");
 				
 				//ejecute la sentencia
 				ResultSet res = consulta.executeQuery();
 				
 				//cree un objeto para cada encontrado en la base de datos basado en la clase entidad con los datos encontrados
 				while (res.next()) {
-					ProductoVO newproducto = new ProductoVO();
-					newproducto.setCodigo_producto(Integer.parseInt(res.getString("codigo_producto")));
-					newproducto.setIva_compra(Double.parseDouble(res.getString("iva_compra")));
-					newproducto.setNit_proveedor(Integer.parseInt(res.getString("nit_proveedor")));
-					newproducto.setNombre_producto(res.getString("nombre_producto"));
-					newproducto.setPrecio_compra(Double.parseDouble(res.getString("precio_compra")));
-					newproducto.setPrecio_venta(Double.parseDouble(res.getString("precio_venta")));
+					VentasVO newventa = new VentasVO();
+					newventa.setCodigo_venta(Integer.parseInt(res.getString("Codigo_venta")));
+					newventa.setCedula_cliente(Integer.parseInt(res.getString("Cedula_cliente")));
+					newventa.setCedula_usuario(Integer.parseInt(res.getString("Cedula_usuario")));
+					newventa.setIvaventa(Double.parseDouble(res.getString("Ivaventa")));
+					newventa.setTotal_venta(Double.parseDouble(res.getString("Total_venta")));
+					newventa.setValor_venta(Double.parseDouble(res.getString("Valor_venta")));
 
-					listaproductos.add(newproducto);
+					listaventas.add(newventa);
 				}
 				
 				//cerrar resultado, sentencia y conexión
@@ -134,21 +134,21 @@
 			} catch (SQLException e) {
 				//si hay un error en el sql mostrarlo
 				System.out.println("------------------- ERROR --------------");
-				System.out.println("No se pudo consultar todos los productos");
+				System.out.println("No se pudo consultar todas las ventas");
 				System.out.println(e.getMessage());
 				System.out.println(e.getErrorCode());
 			} catch (Exception e) {
 				//si hay cualquier otro error mostrarlo
 				System.out.println("------------------- ERROR --------------");
-				System.out.println("No se pudo consultar todos los productos");
+				System.out.println("No se pudo consultar todas las ventas");
 				System.out.println(e.getMessage());
 				System.out.println(e.getLocalizedMessage());
 			}
 
-			return listaproductos;
+			return listaventas;
 		}
 
-		public void eliminarProducto(Integer codigo_producto) {
+		public void eliminarVenta(Integer codigo_venta) {
 			
 			//instancia de la conexion
 			Conexion conex = new Conexion();
@@ -158,7 +158,7 @@
 				Statement consulta = conex.getConnection().createStatement();
 				
 				//preparando sentencia a realizar
-				String sentencia = "delete from productos where codigo_producto=" + codigo_producto + ";";
+				String sentencia = "delete from ventas where codigo_venta=" + codigo_venta + ";";
 				
 				//impresion de verificación
 				System.out.println("Registrado " + sentencia);
@@ -173,20 +173,20 @@
 			} catch (SQLException e) {
 				//si hay un error en el sql mostrarlo
 				System.out.println("------------------- ERROR --------------");
-				System.out.println("No se pudo eliminar el producto");
+				System.out.println("No se pudo eliminar la venta");
 				System.out.println(e.getMessage());
 				System.out.println(e.getErrorCode());
 			} catch (Exception e) {
 				//si hay cualquier otro error mostrarlo
 				System.out.println("------------------- ERROR --------------");
-				System.out.println("No se pudo eliminar el producto");
+				System.out.println("No se pudo eliminar la venta");
 				System.out.println(e.getMessage());
 				System.out.println(e.getLocalizedMessage());
 			}
 
 		}
 
-		public void actualizarProducto(ProductoVO product) {
+		public void actualizarVenta(VentasVO codigov) {
 			
 			//instancia de conexion
 			Conexion conex = new Conexion();
@@ -197,12 +197,12 @@
 				
 				//String con la sentencia a ejecutar
 				String sentencia = "UPDATE productos "
-						+ "SET iva_compra = "+product.getIva_compra()+","
-						+ "nombre_producto = '"+product.getNombre_producto()+"',"
-						+ "nit_proveedor = "+product.getNit_proveedor()+","
-						+ "precio_compra = "+product.getPrecio_compra()+","
-						+ "precio_venta = "+product.getPrecio_venta()+""
-						+ "WHERE codigo_producto = "+product.getCodigo_producto()+";";
+						+ "SET Codigo_venta = "+codigov.getCodigo_venta()+","
+						+ "Cedula_cliente = '"+codigov.getCedula_cliente()+"',"
+						+ "Cedula_usuario = "+codigov.getCedula_usuario()+","
+						+ "Ivaventa = "+codigov.getIvaventa()+","
+						+ "Total_venta = "+codigov.getTotal_venta()+""
+						+ "WHERE Valor_venta = "+codigov.getValor_venta()+";";
 				
 				//ejecuta la sentencia 
 				estatuto.executeUpdate(sentencia);
@@ -217,13 +217,13 @@
 			} catch (SQLException e) {
 				//si hay un error en el sql mostrarlo
 				System.out.println("------------------- ERROR --------------");
-				System.out.println("No se pudo actualizar  el producto");
+				System.out.println("No se pudo actualizar  la venta");
 				System.out.println(e.getMessage());
 				System.out.println(e.getErrorCode());
 			} catch (Exception e) {
 				//si hay cualquier otro error mostrarlo
 				System.out.println("------------------- ERROR --------------");
-				System.out.println("No se pudo eliminar el producto");
+				System.out.println("No se pudo eliminar la venta");
 				System.out.println(e.getMessage());
 				System.out.println(e.getLocalizedMessage());
 			}
@@ -231,7 +231,7 @@
 		}
 		
 		
-		public void eliminarTodoProducto() {
+		/**public void eliminarTodoProducto() {
 			
 			//instancia de la conexion
 			Conexion conex = new Conexion();
@@ -267,9 +267,9 @@
 				System.out.println(e.getLocalizedMessage());
 			}
 
-		}
+		}*/
 
-	}
+}
 	
 
-}*/
+
