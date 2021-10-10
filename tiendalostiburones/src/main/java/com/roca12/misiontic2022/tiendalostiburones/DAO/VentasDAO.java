@@ -1,12 +1,18 @@
 package com.roca12.misiontic2022.tiendalostiburones.DAO;
 
+/**import java.sql.*;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import com.roca12.misiontic2022.tiendalostiburones.DTO.VentasVO;**/
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import com.roca12.misiontic2022.tiendalostiburones.DTO.VentasVO;
-
 public class VentasDAO {
 		
 		public void registrarVenta(VentasVO codigov) {

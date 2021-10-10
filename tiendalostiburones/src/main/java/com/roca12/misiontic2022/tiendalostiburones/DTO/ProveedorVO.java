@@ -1,6 +1,6 @@
 package com.roca12.misiontic2022.tiendalostiburones.DTO;
-
-public class ProveedorVO {
+import java.io.Serializable;
+public class ProveedorVO implements Serializable {
 	//identificador unico de las clases entidad
 	
 		private static final long serialVersionUID = 1L;
